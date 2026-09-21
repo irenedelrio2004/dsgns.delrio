@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Albert+Sans:wght@200;300;400&family=Gilda+Display&display=swap">
+<link rel="stylesheet" href="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/styles.css">
+<script src="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html { background: #000; }
+  body { margin: 0; background: #000; color: #fff; font-family: 'Montserrat', sans-serif; }
+  a { color: #fff; text-decoration: none; }
+  a:hover { color: #bdbdbd; }
+  ::selection { background: #fff; color: #000; }
+
+  .desktop-nav { display: flex; }
+  .mobile-menu { display: none; }
+  .menu-toggle { display: none; }
+  .mobile-nav { display: none; }
+
+  @media (max-width: 760px) {
+    header { flex-wrap: wrap; row-gap: 12px; }
+    .desktop-nav { display: none !important; }
+    .mobile-menu {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+      position: relative;
+      z-index: 51;
+    }
+    .mobile-menu summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      width: 24px;
+      height: 24px;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      margin-left: auto;
+    }
+    .mobile-menu summary::-webkit-details-marker { display: none; }
+    .menu-bar {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+    .mobile-menu[open] .menu-bar:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+    .mobile-menu[open] .menu-bar:nth-child(2) { opacity: 0; }
+    .mobile-menu[open] .menu-bar:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+    header:has(.mobile-menu[open]) .brand-name {
+      display: none;
+    }
+    .mobile-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 0 0 20px;
+      background: #000;
+      position: relative;
+      z-index: 50;
+    }
+    .mobile-menu[open] .mobile-nav {
+      display: flex;
+    }
+    .mobile-nav a {
+      display: block;
+      width: 100%;
+      text-align: left;
+      font-size: 12px;
+      letter-spacing: .14em;
+      color: #f4f4f4;
+      padding: 4px 0;
+    }
+  }
+</style>
+</helmet>
+
+<div style="background:#000;color:#fff;font-family:'Montserrat',sans-serif;text-transform:uppercase;overflow-x:clip;min-height:100vh;display:flex;flex-direction:column">
+
+  <header style="position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 3.5vw;background:#000">
+    <a class="brand-name" href="Home.dc.html" style="font-size:max(12px,.85vw);letter-spacing:.14em;font-weight:400;color:#fff;transition:opacity .25s ease" style-hover="opacity:.55">DSGNS.DELRIO</a>
+    <details class="mobile-menu">
+      <summary class="menu-toggle" aria-label="Abrir menú">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </summary>
+      <nav class="mobile-nav" aria-label="Menú móvil">
+        <a href="#sobre-mi">{{ navAbout }}</a>
+        <a href="Proyectos.dc.html">{{ navWork }}</a>
+      </nav>
+    </details>
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:clamp(28px,5vw,72px);font-size:clamp(10px,.8vw,15px);letter-spacing:.14em;color:#b9b9b9;margin-left:clamp(18px,2vw,32px)">
+      <a href="#sobre-mi" style="color:#fff;transition:color .25s ease;padding:8px 0" style-hover="color:#fff">{{ navAbout }}</a>
+      <a href="Proyectos.dc.html" style="color:#b9b9b9;transition:color .25s ease;padding:8px 0" style-hover="color:#fff">{{ navWork }}</a>
+    </nav>
+  </header>
+
+  <main id="sobre-mi" style="flex:1;width:100%;margin:0 auto;padding:clamp(28px,5vw,80px) 3.5vw clamp(140px,22vh,280px);box-sizing:border-box">
+
+    <h1 style="margin:0 0 clamp(28px,4vw,64px);font-family:'Albert Sans',sans-serif;font-weight:300;letter-spacing:.01em;line-height:1.04;font-size:max(28px,5vw);text-align:center;white-space:nowrap">{{ heroTitle }}</h1>
+
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,64px);align-items:stretch">
+      <image-slot id="about-portrait" shape="rect" fit="cover" src="./images/irene%20selfie.jpeg" style="flex:1 1 320px;align-self:stretch;height:auto;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Foto" style-hover="transform:scale(1.03)"></image-slot>
+      <p style="flex:1 1 320px;margin:0;font-weight:300;font-size:max(20px,1.2vw);line-height:1.45;letter-spacing:.02em;text-align:left;color:#ededed;text-wrap:pretty">{{ bio }}</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,22px);margin:clamp(40px,7vw,110px) 0 clamp(44px,8vw,120px)">
+      <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2;text-wrap:pretty">{{ p1 }}</p>
+      <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2;text-wrap:pretty">{{ p2 }}</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column">
+
+      <button type="button" onClick="{{ toggleEdu }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:0 0 clamp(14px,1.6vw,22px);background:none;border:0;border-bottom:1px solid #6e6e6e;color:#fff;font:inherit;text-transform:uppercase;cursor:pointer;text-align:left">
+        <span style="font-weight:500;font-size:max(12px,1vw);letter-spacing:.06em">{{ eduLabel }}</span>
+        <span style="font-weight:300;font-size:max(14px,1.25vw);line-height:1">{{ eduSign }}</span>
+      </button>
+      <sc-if value="{{ eduOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px);padding:clamp(20px,2.6vw,34px) 0 0">
+          <div>
+            <div style="font-weight:600;font-size:max(10px,.8vw);letter-spacing:.03em">{{ edu1a }}</div>
+            <div style="font-weight:400;font-size:max(10px,.8vw);letter-spacing:.03em;color:#d7d7d7">{{ edu1b }}</div>
+          </div>
+          <div>
+            <div style="font-weight:600;font-size:max(10px,.8vw);letter-spacing:.03em">{{ edu2a }}</div>
+            <div style="font-weight:400;font-size:max(10px,.8vw);letter-spacing:.03em;color:#d7d7d7">{{ edu2b }}</div>
+          </div>
+          <div>
+            <div style="font-weight:600;font-size:max(10px,.8vw);letter-spacing:.03em">{{ edu3a }}</div>
+            <div style="font-weight:400;font-size:max(10px,.8vw);letter-spacing:.03em;color:#d7d7d7">{{ edu3b }}</div>
+          </div>
+          <div>
+            <div style="font-weight:600;font-size:max(10px,.8vw);letter-spacing:.03em">{{ edu4a }}</div>
+            <div style="font-weight:400;font-size:max(10px,.8vw);letter-spacing:.03em;color:#d7d7d7">{{ edu4b }}</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <button type="button" onClick="{{ toggleExp }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;margin-top:clamp(28px,4vw,56px);padding:0 0 clamp(14px,1.6vw,22px);background:none;border:0;border-bottom:1px solid #6e6e6e;color:#fff;font:inherit;text-transform:uppercase;cursor:pointer;text-align:left">
+        <span style="font-weight:500;font-size:max(12px,1vw);letter-spacing:.06em">{{ expLabel }}</span>
+        <span style="font-weight:300;font-size:max(14px,1.25vw);line-height:1">{{ expSign }}</span>
+      </button>
+      <sc-if value="{{ expOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px);padding:clamp(20px,2.6vw,34px) 0 0">
+          <div>
+            <div style="font-weight:600;font-size:max(10px,.8vw);letter-spacing:.03em">{{ exp1a }}</div>
+            <div style="font-weight:400;font-size:max(10px,.8vw);letter-spacing:.03em;color:#d7d7d7;line-height:1.45">{{ exp1b }}</div>
+          </div>
+          <div>
+            <div style="font-weight:600;font-size:max(10px,.8vw);letter-spacing:.03em">{{ exp2a }}</div>
+            <div style="font-weight:400;font-size:max(10px,.8vw);letter-spacing:.03em;color:#d7d7d7;line-height:1.45">{{ exp2b }}</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <button type="button" onClick="{{ toggleSoft }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;margin-top:clamp(28px,4vw,56px);padding:0 0 clamp(14px,1.6vw,22px);background:none;border:0;border-bottom:1px solid #6e6e6e;color:#fff;font:inherit;text-transform:uppercase;cursor:pointer;text-align:left">
+        <span style="font-weight:500;font-size:max(12px,1vw);letter-spacing:.06em">{{ softLabel }}</span>
+        <span style="font-weight:300;font-size:max(14px,1.25vw);line-height:1">{{ softSign }}</span>
+      </button>
+      <sc-if value="{{ softOpen }}" hint-placeholder-val="{{ true }}">
+        <ul style="margin:0;padding:clamp(20px,2.6vw,34px) 0 0 1.2em;list-style:disc;display:flex;flex-direction:column;gap:4px;text-transform:none;font-weight:500;font-size:max(10px,.8vw);letter-spacing:.03em;color:#ededed">
+          <sc-for list="{{ software }}" as="item" hint-placeholder-count="6">
+            <li>{{ item }}</li>
+          </sc-for>
+        </ul>
+      </sc-if>
+
+      <button type="button" onClick="{{ toggleLang }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;margin-top:clamp(28px,4vw,56px);padding:0 0 clamp(14px,1.6vw,22px);background:none;border:0;border-bottom:1px solid #6e6e6e;color:#fff;font:inherit;text-transform:uppercase;cursor:pointer;text-align:left">
+        <span style="font-weight:500;font-size:max(12px,1vw);letter-spacing:.06em">{{ langLabel }}</span>
+        <span style="font-weight:300;font-size:max(14px,1.25vw);line-height:1">{{ langSign }}</span>
+      </button>
+      <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:clamp(20px,2.6vw,34px) 0 0;display:flex;flex-direction:column;gap:2px;font-weight:500;font-size:max(10px,.8vw);letter-spacing:.03em;color:#ededed">
+          <div>{{ lang1 }}</div>
+          <div>{{ lang2 }}</div>
+        </div>
+      </sc-if>
+
+    </div>
+  </main>
+
+  <footer style="background:#e9e9e9;color:#111;display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2.4vw,32px);padding:clamp(36px,5vw,80px) 5vw clamp(28px,3.5vw,56px);font-family:'Gilda Display',serif">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:18px">
+      <div style="display:flex;align-items:center;gap:clamp(4px,.6vw,10px)">
+        <img src="images/logo.webp" alt="DSGNS.DELRIO" style="display:block;height:max(26px,4.8vw);width:auto" />
+        <span style="font-weight:400;letter-spacing:.01em;font-size:max(22px,4vw);line-height:1;color:#111">DSGNS.DELRIO</span>
+      </div>
+      <nav style="display:flex;gap:clamp(18px,3vw,44px);font-family:'Montserrat',sans-serif;font-size:max(12px,.95vw);letter-spacing:.04em;text-transform:none;color:#333">
+        <a href="https://www.instagram.com/dsgns.delrio/" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">Instagram</a>
+        <a href="https://www.tiktok.com/@dsgns.delrio" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">TikTok</a>
+        <a href="https://www.linkedin.com/in/irene-del-r%C3%ADo-174784340/" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">Linkedin</a>
+      </nav>
+    </div>
+    <a href="mailto:irenerio2004@gmail.com" style="font-family:'Montserrat',sans-serif;font-size:max(13px,1.3vw);letter-spacing:.04em;font-weight:400;color:#111;transition:opacity .25s ease" style-hover="opacity:.55">IRENERIO2004@GMAIL.COM</a>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:max(12px,.95vw);letter-spacing:.06em;color:#6b6b6b">
+      <button type="button" onClick="{{ setEs }}" style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ esColor }}">ES</button>
+      <span>/</span>
+      <button type="button" onClick="{{ setEn }}" style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ enColor }}">IN</button>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script>
+function toggleMobileMenu(button, menuId) {
+  const menu = document.getElementById(menuId);
+  if (!menu) return;
+
+  const isOpen = button.getAttribute('aria-expanded') === 'true';
+  const nextState = !isOpen;
+  button.setAttribute('aria-expanded', String(nextState));
+  menu.classList.toggle('open', nextState);
+}
+</script>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ES&quot;,&quot;EN&quot;],&quot;default&quot;:&quot;ES&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const COPY = {
+  ES: {
+    navAbout: "SOBRE MI",
+    navWork: "PROYECTOS",
+    heroTitle: "HOLA, SOY IRENE",
+    bio: "ME LLAMO IRENE DEL RÍO ROMO, TENGO 22 AÑOS Y ACABO DE TERMINAR LA CARRERA DE DISEÑO GRÁFICO Y MULTIMEDIA EN LA UNIVERSIDAD UDIT DE MADRID. ACTUALMENTE ESTOY HACIENDO EL MASTER DE MOTION GRAPHICS EN VOXEL SCHOOL.",
+    p1: "SIEMPRE ME HAN APASIONADO EL DISEÑO GRÁFICO Y LA PUBLICIDAD. ME CONSIDERO UNA PERSONA CREATIVA, INNOVADORA Y DE MENTE ABIERTA, QUE SIEMPRE BUSCA NUEVAS OPORTUNIDADES PARA APRENDER Y CRECER PROFESIONALMENTE.",
+    p2: "DURANTE MI TERCER AÑO, TUVE LA OPORTUNIDAD DE COMBINAR LA FORMACIÓN PRÁCTICA CON UNA EXPERIENCIA INTERNACIONAL. EN EL PRIMER SEMESTRE, REALICÉ MIS PRÁCTICAS UNIVERSITARIAS EN EL ESTUDIO DE OSCAR MARINÉ. POSTERIORMENTE, EN EL SEGUNDO SEMESTRE, PARTICIPÉ EN EL PROGRAMA ERASMUS Y CURSÉ MIS ESTUDIOS EN la UNIVERSIDAD METROPOLITAN EN BUDAPEST, HUNGRÍA.",
+    eduLabel: "FORMACIÓN",
+    expLabel: "EXPERIENCIA",
+    softLabel: "PROGRAMAS",
+    langLabel: "IDIOMAS",
+    edu1a: "BACHILLERATO EN CIENCIAS SOCIALES – 2020–2022",
+    edu1b: "COLEGIO GREDOS SAN DIEGO MORATALAZ",
+    edu2a: "GRADO EN DISEÑO GRÁFICO Y MULTIMEDIA – 3.ER CURSO, 2025",
+    edu2b: "BUDAPEST METROPOLITAN UNIVERSITY",
+    edu3a: "GRADO EN DISEÑO GRÁFICO Y MULTIMEDIA – 1.ER, 2.º Y 4.º CURSO, 2026",
+    edu3b: "UNIVERSIDAD DE DISEÑO, INNOVACIÓN Y TECNOLOGÍA (UDIT)",
+    edu4a: "MATER MOTION GRAPHICS - 2026-2027",
+    edu4b: "UNIVERSIDAD VOXEL SCHOOL",
+    exp1a: "GIMNASIOS BROOKLYN FITBOXING – 2023",
+    exp1b: "ACABADOS GRÁFICOS MURALES PARA GIMNASIOS EN ESPAÑA Y EL RESTO DE EUROPA.",
+    exp2a: "STUDIOS MIKADO III, S.L. – ÓSCAR MARINÉ – 2024/25",
+    exp2b: "LOGÍSTICA Y EJECUCIÓN DE PROYECTOS PARA ÓSCAR MARINÉ, INCLUYENDO LA INCORPORACIÓN DE ELEMENTOS DE DISEÑO A SUS OBRAS Y EVENTOS, ASÍ COMO PROYECTOS DE DISEÑO PARA CLIENTES EXTERNOS.",
+    software: ["Photoshop: 4/5", "Illustrator: 5/5", "Indesign: 4/5", "Procreate: 5/5", "After Efects 4/5", "CapCut: 4/5"],
+    lang1: "SPANISH: Nativo",
+    lang2: "ENGLISH: Intermedio"
+  },
+  EN: {
+    navAbout: "ABOUT ME",
+    navWork: "PROJECTS",
+    heroTitle: "HI, I'M IRENE",
+    bio: "MY NAME IS IRENE DEL RÍO ROMO, I'M 22 AND I HAVE JUST FINISHED MY DEGREE IN GRAPHIC DESIGN AND MULTIMEDIA AT UDIT UNIVERSITY IN MADRID. I AM CURRENTLY TAKING THE MOTION GRAPHICS MASTER AT VOXEL SCHOOL.",
+    p1: "I AM IN MY FOURTH YEAR OF UNIVERSITY AND I HAVE ALWAYS BEEN PASSIONATE ABOUT GRAPHIC DESIGN AND ADVERTISING. I SEE MYSELF AS A CREATIVE, INNOVATIVE AND OPEN-MINDED PERSON, ALWAYS LOOKING FOR NEW OPPORTUNITIES TO LEARN AND GROW PROFESSIONALLY.",
+    p2: "DURING MY THIRD YEAR I WAS ABLE TO COMBINE PRACTICAL TRAINING WITH AN INTERNATIONAL EXPERIENCE. IN THE FIRST SEMESTER I DID MY UNIVERSITY INTERNSHIP AT OSCAR MARINÉ'S STUDIO. LATER, IN THE SECOND SEMESTER, I JOINED THE ERASMUS PROGRAMME AND STUDIED IN BUDAPEST, HUNGARY.",
+    eduLabel: "EDUCATION",
+    expLabel: "EXPERIENCE",
+    softLabel: "SOFTWARE",
+    langLabel: "LANGUAGES",
+    edu1a: "BACCALAUREATE IN SOCIAL SCIENCES – 2020–2022",
+    edu1b: "COLEGIO GREDOS SAN DIEGO MORATALAZ",
+    edu2a: "BA IN GRAPHIC DESIGN AND MULTIMEDIA – 3RD YEAR, 2025",
+    edu2b: "BUDAPEST METROPOLITAN UNIVERSITY",
+    edu3a: "BA IN GRAPHIC DESIGN AND MULTIMEDIA – 1ST, 2ND & 4TH YEAR, 2026",
+    edu3b: "UNIVERSIDAD DE DISEÑO, INNOVACIÓN Y TECNOLOGÍA (UDIT)",
+    edu4a: "MOTION GRAPHICS MASTER - 2026-2027",
+    edu4b: "VOXEL SCHOOL",
+    exp1a: "BROOKLYN FITBOXING GYMS – 2023",
+    exp1b: "GRAPHIC MURAL FINISHES FOR GYMS IN SPAIN AND THE REST OF EUROPE.",
+    exp2a: "STUDIOS MIKADO III, S.L. – ÓSCAR MARINÉ – 2024/25",
+    exp2b: "LOGISTICS AND PROJECT EXECUTION FOR ÓSCAR MARINÉ, INCLUDING ADDING DESIGN ELEMENTS TO HIS WORKS AND EVENTS, AS WELL AS DESIGN PROJECTS FOR EXTERNAL CLIENTS.",
+    software: ["Photoshop: 4/5", "Illustrator: 5/5", "Indesign: 4/5", "Procreate: 5/5", "After Efects 4/5", "CapCut: 4/5"],
+    lang1: "SPANISH: Native",
+    lang2: "ENGLISH: Intermediate"
+  }
+};
+
+class Component extends DCLogic {
+  state = {
+    lang: this.props.defaultLang === "EN" ? "EN" : "ES",
+    open: { edu: false, exp: false, soft: false, lang: false }
+  };
+
+  toggle(key) {
+    this.setState(s => ({ open: { ...s.open, [key]: !s.open[key] } }));
+  }
+
+  renderVals() {
+    const t = COPY[this.state.lang];
+    const o = this.state.open;
+    return {
+      ...t,
+      eduOpen: o.edu, expOpen: o.exp, softOpen: o.soft, langOpen: o.lang,
+      eduSign: o.edu ? "–" : "+",
+      expSign: o.exp ? "–" : "+",
+      softSign: o.soft ? "–" : "+",
+      langSign: o.lang ? "–" : "+",
+      toggleEdu: () => this.toggle("edu"),
+      toggleExp: () => this.toggle("exp"),
+      toggleSoft: () => this.toggle("soft"),
+      toggleLang: () => this.toggle("lang"),
+      esColor: this.state.lang === "ES" ? "#111" : "#8d8d8d",
+      enColor: this.state.lang === "EN" ? "#111" : "#8d8d8d",
+      setEs: () => this.setState({ lang: "ES" }),
+      setEn: () => this.setState({ lang: "EN" })
+    };
+  }
+}
+
+</script>
+</body>
+</html>
