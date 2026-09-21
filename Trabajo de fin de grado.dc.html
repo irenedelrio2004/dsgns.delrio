@@ -1,164 +1,922 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Albert+Sans:wght@200;300;400&family=Gilda+Display&display=swap">
-<link rel="stylesheet" href="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/styles.css">
-<script src="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/_ds_bundle.js"></script>
-<script src="./image-slot.js"></script>
-<style>
-  html { background: #000; }
-  body { margin: 0; background: #000; color: #fff; font-family: 'Montserrat', sans-serif; }
-  a { color: #fff; text-decoration: none; }
-  a:hover { color: #bdbdbd; }
-  ::selection { background: #fff; color: #000; }
-</style>
-</helmet>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="images/logo.webp" type="image/webp" />
+    <script src="./support.js"></script>
+  </head>
+  <body>
+    <x-dc>
+      <helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Albert+Sans:wght@200;300;400&family=Gilda+Display&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/styles.css"
+        />
+        <script src="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/_ds_bundle.js"></script>
+        <script src="./image-slot.js"></script>
+        <style>
+          html {
+            background: #000;
+          }
+          body {
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: "Montserrat", sans-serif;
+          }
+          a {
+            color: #fff;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #bdbdbd;
+          }
+          ::selection {
+            background: #fff;
+            color: #000;
+          }
+        </style>
+      </helmet>
 
-<div style="background:#000;color:#fff;font-family:'Montserrat',sans-serif;text-transform:uppercase;overflow-x:clip;min-height:100vh;display:flex;flex-direction:column">
+      <div
+        style="
+          background: #000;
+          color: #fff;
+          font-family: &quot;Montserrat&quot;, sans-serif;
+          text-transform: uppercase;
+          overflow-x: clip;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <header
+          style="
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 22px 3.5vw;
+            background: #000;
+          "
+        >
+          <a
+            href="index.html"
+            style="
+              font-size: max(12px, 0.85vw);
+              letter-spacing: 0.14em;
+              font-weight: 400;
+              color: #fff;
+              transition: opacity 0.25s ease;
+            "
+            style-hover="opacity:.55"
+            >DSGNS.DELRIO</a
+          >
+          <nav
+            style="
+              display: flex;
+              align-items: center;
+              gap: clamp(20px, 4vw, 56px);
+              font-size: max(11px, 0.8vw);
+              letter-spacing: 0.14em;
+              color: #b9b9b9;
+            "
+          >
+            <a
+              href="Sobre%20mi.dc.html"
+              style="color: #b9b9b9; transition: color 0.25s ease"
+              style-hover="color:#fff"
+              >{{ navAbout }}</a
+            >
+            <a
+              href="Proyectos.dc.html"
+              style="color: #b9b9b9; transition: color 0.25s ease"
+              style-hover="color:#fff"
+              >{{ navWork }}</a
+            >
+          </nav>
+        </header>
 
-  <header style="position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 3.5vw;background:#000">
-    <a href="Home.dc.html" style="font-size:max(12px,.85vw);letter-spacing:.14em;font-weight:400;color:#fff;transition:opacity .25s ease" style-hover="opacity:.55">DSGNS.DELRIO</a>
-    <nav style="display:flex;align-items:center;gap:clamp(20px,4vw,56px);font-size:max(11px,.8vw);letter-spacing:.14em;color:#b9b9b9">
-      <a href="Sobre%20mi.dc.html" style="color:#b9b9b9;transition:color .25s ease" style-hover="color:#fff">{{ navAbout }}</a>
-      <a href="Proyectos.dc.html" style="color:#b9b9b9;transition:color .25s ease" style-hover="color:#fff">{{ navWork }}</a>
-    </nav>
-  </header>
+        <main
+          style="
+            flex: 1;
+            width: 100%;
+            padding: clamp(40px, 7vw, 110px) 3.5vw clamp(140px, 22vh, 280px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(28px, 4vw, 60px);
+          "
+        >
+          <h2
+            style="
+              margin: 0;
+              font-family: &quot;Albert Sans&quot;, sans-serif;
+              font-weight: 300;
+              letter-spacing: 0.04em;
+              font-size: max(17px, 1.8vw);
+            "
+          >
+            TRABAJO DE FIN DE GRADO
+          </h2>
 
-  <main style="flex:1;width:100%;padding:clamp(40px,7vw,110px) 3.5vw clamp(140px,22vh,280px);box-sizing:border-box;display:flex;flex-direction:column;gap:clamp(28px,4vw,60px)">
+          <image-slot
+            id="tfg-hero"
+            shape="rect"
+            fit="contain"
+            src="./images/logo-blanco.png"
+            style="
+              width: 100%;
+              aspect-ratio: 16/8;
+              --slot-bg: #000;
+              transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            "
+            placeholder="Terminal — imagen principal"
+            style-hover="transform:scale(1.03)"
+          ></image-slot>
 
-    <h2 style="margin:0;font-family:'Albert Sans',sans-serif;font-weight:300;letter-spacing:.04em;font-size:max(17px,1.8vw)">TRABAJO DE FIN DE GRADO</h2>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: clamp(14px, 1.6vw, 22px);
+            "
+          >
+            <p
+              style="
+                margin: 0;
+                font-weight: 300;
+                font-size: max(11px, 0.9vw);
+                line-height: 1.5;
+                letter-spacing: 0.02em;
+                text-align: justify;
+                color: #e2e2e2;
+              "
+            >
+              TERMINAL ES UNA PROPUESTA DE IDENTIDAD VISUAL Y BRANDING
+              EXPERIENCIAL PARA UN ESPACIO EN MADRID QUE FUSIONA DOS UNIVERSOS
+              PRINCIPALMENTE OPUESTOS: LA CULTURA DEL BRUNCH/TARDEO Y LA MÚSICA
+              TECHNO.
+            </p>
+            <p
+              style="
+                margin: 0;
+                font-weight: 300;
+                font-size: max(11px, 0.9vw);
+                line-height: 1.5;
+                letter-spacing: 0.02em;
+                text-align: justify;
+                color: #e2e2e2;
+              "
+            >
+              EL PROYECTO NACE DE LA OBSERVACIÓN DEL CAMBIO EN LOS HÁBITOS DE
+              OCIO DEL PÚBLICO JOVEN ADULTO (20-35 AÑOS), QUE BUSCA PLANES
+              DIURNOS Y SOCIALES SIN RENUNCIAR A LA INTENSIDAD ESTÉTICA Y
+              MUSICAL DE LA ELECTRÓNICA.
+            </p>
+            <p
+              style="
+                margin: 0;
+                font-weight: 300;
+                font-size: max(11px, 0.9vw);
+                line-height: 1.5;
+                letter-spacing: 0.02em;
+                text-align: justify;
+                color: #e2e2e2;
+              "
+            >
+              A TRAVÉS DE LA METÁFORA DEL VIAJE Y EL TRÁNSITO EN LOS
+              AEROPUERTOS, TERMINAL ARTICULA UNA EXPERIENCIA EN TRES FASES: DAY
+              BOARDING (BRUNCH Y SOCIALIZACIÓN), SUNSET TRANSITION (DESPEGUE
+              SENSORIAL AL ATARDECER) Y NIGHT SESSION (INMERSIÓN MUSICAL).
+            </p>
+            <a
+              href="https://drive.google.com/file/d/1UF5Q_T9F-7zZE12x2um7jjqkNEZww2W-/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="
+                font-weight: 300;
+                font-size: max(11px, 0.9vw);
+                line-height: 1.5;
+                letter-spacing: 0.02em;
+                color: #e2e2e2;
+                text-decoration: underline;
+              "
+              >MEMORIA COMPLETA</a
+            >
+          </div>
 
-    <image-slot id="tfg-hero" shape="rect" fit="contain" src="./images/logo-blanco.png" style="width:100%;aspect-ratio:16/8;--slot-bg:#000;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Terminal — imagen principal" style-hover="transform:scale(1.03)"></image-slot>
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              aspect-ratio: 16/9;
+              background: #141414;
+            "
+          >
+            <video
+              src="videos/tfg-terminal.mp4"
+              controls="{{ true }}"
+              preload="metadata"
+              playsinline="{{ true }}"
+              style="
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                background: #141414;
+                display: block;
+              "
+            ></video>
+          </div>
 
-    <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,22px)">
-      <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">TERMINAL ES UNA PROPUESTA DE IDENTIDAD VISUAL Y BRANDING EXPERIENCIAL PARA UN ESPACIO  EN MADRID QUE FUSIONA DOS UNIVERSOS PRINCIPALMENTE OPUESTOS: LA CULTURA DEL BRUNCH/TARDEO Y LA MÚSICA TECHNO.</p>
-      <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">EL PROYECTO NACE DE LA OBSERVACIÓN DEL CAMBIO EN LOS HÁBITOS DE OCIO DEL PÚBLICO JOVEN ADULTO (20-35 AÑOS), QUE BUSCA PLANES DIURNOS Y SOCIALES SIN RENUNCIAR A LA INTENSIDAD ESTÉTICA Y MUSICAL DE LA ELECTRÓNICA.</p>
-      <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">A TRAVÉS DE LA METÁFORA DEL VIAJE Y EL TRÁNSITO EN LOS AEROPUERTOS, TERMINAL ARTICULA UNA EXPERIENCIA EN TRES FASES: DAY BOARDING (BRUNCH Y SOCIALIZACIÓN), SUNSET TRANSITION (DESPEGUE SENSORIAL AL ATARDECER) Y NIGHT SESSION (INMERSIÓN MUSICAL).</p>
-      <a href="https://drive.google.com/file/d/1UF5Q_T9F-7zZE12x2um7jjqkNEZww2W-/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;color:#e2e2e2;text-decoration:underline">MEMORIA COMPLETA</a>
-    </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: clamp(14px, 1.6vw, 22px);
+            "
+          >
+            <p
+              style="
+                margin: 0;
+                font-weight: 300;
+                font-size: max(11px, 0.9vw);
+                line-height: 1.5;
+                letter-spacing: 0.02em;
+                text-align: justify;
+                color: #e2e2e2;
+              "
+            >
+              EL MAPA DE TERMINAL PLANTEA UN RECORRIDO CONTINUO INSPIRADO EN UNA
+              TERMINAL DE AEROPUERTO, DONDE LA CAFETERÍA CON TERRAZA, LOS
+              ESCENARIOS Y LOS SERVICIOS SE CONECTAN DE FORMA ABIERTA Y FLUIDA.
+            </p>
+            <p
+              style="
+                margin: 0;
+                font-weight: 300;
+                font-size: max(11px, 0.9vw);
+                line-height: 1.5;
+                letter-spacing: 0.02em;
+                text-align: justify;
+                color: #e2e2e2;
+              "
+            >
+              BAJO UNA GRAN CUBIERTA DE CRISTAL QUE MANTIENE LA LUZ NATURAL COMO
+              PROTAGONISTA DEL OCIO DIURNO, LA ARQUITECTURA APUESTA EL NARANJA
+              CORPORATIVO PARA QUE RESALTE ESTRATÉGICAMENTE EN EL MOBILIARIO.
+            </p>
+          </div>
 
-    <div style="position:relative;width:100%;aspect-ratio:16/9;background:#141414">
-      <video src="videos/tfg-terminal.mp4" controls="{{ true }}" preload="metadata" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#141414;display:block"></video>
-    </div>
+          <image-slot
+            id="tfg-plano"
+            shape="rect"
+            fit="contain"
+            src="./images/MAPA%20WEB.png"
+            style="
+              width: 100%;
+              aspect-ratio: 16/9;
+              --slot-bg: #000;
+              transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            "
+            placeholder="Plano isométrico del recinto"
+            style-hover="transform:scale(1.03)"
+          ></image-slot>
 
-    <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,22px)">
-      <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">EL MAPA DE TERMINAL PLANTEA UN RECORRIDO CONTINUO INSPIRADO EN UNA TERMINAL DE AEROPUERTO, DONDE LA CAFETERÍA CON TERRAZA, LOS ESCENARIOS  Y LOS SERVICIOS SE CONECTAN DE FORMA ABIERTA Y FLUIDA.</p>
-      <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">BAJO UNA GRAN CUBIERTA DE CRISTAL QUE MANTIENE LA LUZ NATURAL COMO PROTAGONISTA DEL OCIO DIURNO, LA ARQUITECTURA APUESTA  EL NARANJA CORPORATIVO PARA QUE RESALTE ESTRATÉGICAMENTE EN EL MOBILIARIO.</p>
-    </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 300px), 1fr)
+              );
+              gap: clamp(12px, 1.6vw, 24px);
+            "
+          >
+            <image-slot
+              id="tfg-foto-1"
+              shape="rect"
+              fit="cover"
+              src="./images/SITIO1.png"
+              style="
+                width: 100%;
+                aspect-ratio: 3/2;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Foto 1"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-foto-2"
+              shape="rect"
+              fit="cover"
+              src="./images/SITIO2.png"
+              style="
+                width: 100%;
+                aspect-ratio: 3/2;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Foto 2"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-foto-3"
+              shape="rect"
+              fit="cover"
+              src="./images/SITIO3.png"
+              style="
+                width: 100%;
+                aspect-ratio: 3/2;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Foto 3"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-foto-4"
+              shape="rect"
+              fit="cover"
+              src="./images/SITIO4.png"
+              style="
+                width: 100%;
+                aspect-ratio: 3/2;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Foto 4"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+          </div>
 
-    <image-slot id="tfg-plano" shape="rect" fit="contain" src="./images/MAPA%20WEB.png" style="width:100%;aspect-ratio:16/9;--slot-bg:#000;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Plano isométrico del recinto" style-hover="transform:scale(1.03)"></image-slot>
+          <p
+            style="
+              margin: 0;
+              font-weight: 300;
+              font-size: max(11px, 0.9vw);
+              line-height: 1.5;
+              letter-spacing: 0.02em;
+              text-align: justify;
+              color: #e2e2e2;
+            "
+          >
+            EL SISTEMA GRÁFICO FUE CONCEBIDO DE FORMA FLEXIBLE Y ESCALABLE,
+            CAPAZ DE HABITAR TANTO EL ESPACIO PERMANENTE COMO FORMATOS EFÍMEROS,
+            COMO POP-UPS, FOOD TRUCKS Y ESCENARIOS EN FESTIVALES
+          </p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(12px,1.6vw,24px)">
-      <image-slot id="tfg-foto-1" shape="rect" fit="cover" src="./images/SITIO1.png" style="width:100%;aspect-ratio:3/2;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Foto 1" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-foto-2" shape="rect" fit="cover" src="./images/SITIO2.png" style="width:100%;aspect-ratio:3/2;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Foto 2" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-foto-3" shape="rect" fit="cover" src="./images/SITIO3.png" style="width:100%;aspect-ratio:3/2;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Foto 3" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-foto-4" shape="rect" fit="cover" src="./images/SITIO4.png" style="width:100%;aspect-ratio:3/2;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Foto 4" style-hover="transform:scale(1.03)"></image-slot>
-    </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 300px), 1fr)
+              );
+              gap: clamp(12px, 1.6vw, 24px);
+            "
+          >
+            <image-slot
+              id="tfg-escenario"
+              shape="rect"
+              fit="cover"
+              src="./images/FESTIVAL.png"
+              style="
+                width: 100%;
+                aspect-ratio: 3/2;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Escenario"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-foodtruck"
+              shape="rect"
+              fit="cover"
+              src="./images/foodtruck.png"
+              style="
+                width: 100%;
+                aspect-ratio: 3/2;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Food truck"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+          </div>
 
-    <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">EL SISTEMA GRÁFICO FUE CONCEBIDO DE FORMA FLEXIBLE Y ESCALABLE, CAPAZ DE HABITAR TANTO EL ESPACIO PERMANENTE COMO FORMATOS EFÍMEROS, COMO POP-UPS, FOOD TRUCKS Y ESCENARIOS EN FESTIVALES</p>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: clamp(10px, 1.2vw, 16px);
+            "
+          >
+            <p
+              style="
+                margin: 0;
+                font-weight: 300;
+                font-size: max(11px, 0.9vw);
+                line-height: 1.5;
+                letter-spacing: 0.02em;
+                text-align: justify;
+                color: #e2e2e2;
+              "
+            >
+              DISEÑO DIGITAL & SOCIAL MEDIA: ARQUITECTURA Y DISEÑO WEB
+              RESPONSIVE (CON VISUALIZACIÓN DE CARTA), FEED Y PLANTILLAS
+              INTERACTIVAS PARA INSTAGRAM (REELS, STORIES EN TIEMPO REAL Y
+              CARTELERÍA PARA LINE-UPS).
+            </p>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                font-weight: 300;
+                font-size: max(10px, 0.8vw);
+                letter-spacing: 0.02em;
+                color: #c9c9c9;
+                text-transform: none;
+              "
+            >
+              <span>INSTAGRAM: @TEERMIINAAL</span>
+              <a
+                href="https://irenedelrio2004.github.io/terminal/"
+                target="_blank"
+                rel="noopener"
+                style="color: #c9c9c9"
+                >WEB: HTTPS://IRENEDELRIO2004.GITHUB.IO/TERMINAL/</a
+              >
+            </div>
+          </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(12px,1.6vw,24px)">
-      <image-slot id="tfg-escenario" shape="rect" fit="cover" src="./images/FESTIVAL.png" style="width:100%;aspect-ratio:3/2;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Escenario" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-foodtruck" shape="rect" fit="cover" src="./images/foodtruck.png" style="width:100%;aspect-ratio:3/2;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Food truck" style-hover="transform:scale(1.03)"></image-slot>
-    </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 280px), 1fr)
+              );
+              gap: clamp(12px, 1.6vw, 24px);
+            "
+          >
+            <div
+              style="
+                position: relative;
+                width: 100%;
+                aspect-ratio: 4/5;
+                background: #141414;
+              "
+            >
+              <video
+                src="videos/tfg-mills-cloudy.mp4"
+                controls="{{ true }}"
+                preload="metadata"
+                playsinline="{{ true }}"
+                style="
+                  position: absolute;
+                  inset: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                  background: #141414;
+                  display: block;
+                "
+              ></video>
+            </div>
+            <div
+              style="
+                position: relative;
+                width: 100%;
+                aspect-ratio: 4/5;
+                background: #141414;
+              "
+            >
+              <image-slot
+                id="tfg-pastis-buenri-foto"
+                shape="rect"
+                fit="cover"
+                src="./images/PASTIS%20Y%20BUENRI.jpg"
+                placeholder="Pastis y Buenri"
+              ></image-slot>
+            </div>
+          </div>
 
-    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.2vw,16px)">
-      <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">DISEÑO DIGITAL & SOCIAL MEDIA: ARQUITECTURA Y DISEÑO WEB RESPONSIVE (CON VISUALIZACIÓN DE CARTA), FEED Y PLANTILLAS INTERACTIVAS PARA INSTAGRAM (REELS, STORIES EN TIEMPO REAL Y CARTELERÍA PARA LINE-UPS).</p>
-      <div style="display:flex;flex-direction:column;gap:2px;font-weight:300;font-size:max(10px,.8vw);letter-spacing:.02em;color:#c9c9c9;text-transform:none">
-        <span>INSTAGRAM: @TEERMIINAAL</span>
-        <a href="https://irenedelrio2004.github.io/terminal/" target="_blank" rel="noopener" style="color:#c9c9c9">WEB:  HTTPS://IRENEDELRIO2004.GITHUB.IO/TERMINAL/</a>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 220px), 1fr)
+              );
+              gap: clamp(12px, 1.6vw, 24px);
+            "
+          >
+            <image-slot
+              id="tfg-post-1"
+              shape="rect"
+              fit="cover"
+              src="./images/PUBLI1.png"
+              style="
+                width: 100%;
+                aspect-ratio: 4/5;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Post 1"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-post-2"
+              shape="rect"
+              fit="cover"
+              src="./images/PUBLI2.png"
+              style="
+                width: 100%;
+                aspect-ratio: 4/5;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Post 2"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-post-3"
+              shape="rect"
+              fit="cover"
+              src="./images/PUBLI3.png"
+              style="
+                width: 100%;
+                aspect-ratio: 4/5;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Post 3"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-post-4"
+              shape="rect"
+              fit="cover"
+              src="./images/PUBLI4.png"
+              style="
+                width: 100%;
+                aspect-ratio: 4/5;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Post 4"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-post-5"
+              shape="rect"
+              fit="cover"
+              src="./images/PUBLI5.png"
+              style="
+                width: 100%;
+                aspect-ratio: 4/5;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Post 5"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-post-6"
+              shape="rect"
+              fit="cover"
+              src="./images/PUBLI6.png"
+              style="
+                width: 100%;
+                aspect-ratio: 4/5;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Post 6"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+          </div>
+
+          <p
+            style="
+              margin: 0;
+              font-weight: 300;
+              font-size: max(11px, 0.9vw);
+              line-height: 1.5;
+              letter-spacing: 0.02em;
+              text-align: justify;
+              color: #e2e2e2;
+            "
+          >
+            PACKAGING & PAPELERÍA: MENÚS PLASTIFICADOS RESISTENTES PARA ENTORNOS
+            DE FIESTA Y LÍNEA DE ENVASES SOSTENIBLES.
+          </p>
+
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              aspect-ratio: 16/9;
+              background: #141414;
+            "
+          >
+            <video
+              src="videos/tfg-packaging.mp4"
+              controls="{{ true }}"
+              preload="metadata"
+              playsinline="{{ true }}"
+              style="
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                background: #141414;
+                display: block;
+              "
+            ></video>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 240px), 1fr)
+              );
+              gap: clamp(12px, 1.6vw, 24px);
+            "
+          >
+            <image-slot
+              id="tfg-menu-1"
+              shape="rect"
+              fit="contain"
+              src="./images/menu3.png"
+              style="
+                width: 100%;
+                aspect-ratio: 2/3;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Menú 1"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-menu-2"
+              shape="rect"
+              fit="contain"
+              src="./images/menu1.png"
+              style="
+                width: 100%;
+                aspect-ratio: 2/3;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Menú 2"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-menu-3"
+              shape="rect"
+              fit="contain"
+              src="./images/menu2.png"
+              style="
+                width: 100%;
+                aspect-ratio: 2/3;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Menú 3"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+          </div>
+
+          <p
+            style="
+              margin: 0;
+              font-weight: 300;
+              font-size: max(11px, 0.9vw);
+              line-height: 1.5;
+              letter-spacing: 0.02em;
+              text-align: justify;
+              color: #e2e2e2;
+            "
+          >
+            MERCHANDISING & STAFF: ACREDITACIONES POR JERARQUÍA DE COLOR,
+            PULSERAS DE ACCESO, CAMISETAS BORDADAS, ABANICOS, GORRAS, PEGATINAS
+            ESTILO BOARDING PASS Y UNIFORMES TÉCNICOS PARA EL PERSONAL DEL
+            RECINTO.
+          </p>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 220px), 1fr)
+              );
+              gap: clamp(12px, 1.6vw, 24px);
+            "
+          >
+            <image-slot
+              id="tfg-merch-1"
+              shape="rect"
+              fit="cover"
+              src="./images/merch2.png"
+              style="
+                width: 100%;
+                aspect-ratio: 2/3;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Merchandising 1"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-merch-2"
+              shape="rect"
+              fit="cover"
+              src="./images/merch3.png"
+              style="
+                width: 100%;
+                aspect-ratio: 2/3;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Merchandising 2"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-merch-3"
+              shape="rect"
+              fit="cover"
+              src="./images/merch4.png"
+              style="
+                width: 100%;
+                aspect-ratio: 2/3;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Merchandising 3"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+            <image-slot
+              id="tfg-merch-4"
+              shape="rect"
+              fit="cover"
+              src="./images/mech1.png"
+              style="
+                width: 100%;
+                aspect-ratio: 2/3;
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+              "
+              placeholder="Merchandising 4"
+              style-hover="transform:scale(1.03)"
+            ></image-slot>
+          </div>
+        </main>
+
+        <footer
+          style="
+            background: #e9e9e9;
+            color: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(16px, 2.4vw, 32px);
+            padding: clamp(36px, 5vw, 80px) 3.5vw clamp(28px, 3.5vw, 56px);
+            font-family: &quot;Gilda Display&quot;, serif;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 18px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: clamp(4px, 0.6vw, 10px);
+              "
+            >
+              <img
+                src="images/logo.webp"
+                alt="DSGNS.DELRIO"
+                style="display: block; height: max(26px, 4.8vw); width: auto"
+              />
+              <span
+                style="
+                  font-weight: 400;
+                  letter-spacing: 0.01em;
+                  font-size: max(22px, 4vw);
+                  line-height: 1;
+                  color: #111;
+                "
+                >DSGNS.DELRIO</span
+              >
+            </div>
+            <nav
+              style="
+                display: flex;
+                gap: clamp(18px, 3vw, 44px);
+                font-family: &quot;Montserrat&quot;, sans-serif;
+                font-size: max(12px, 0.95vw);
+                letter-spacing: 0.04em;
+                text-transform: none;
+                color: #333;
+              "
+            >
+              <a
+                href="https://www.instagram.com/dsgns.delrio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: #333; transition: color 0.25s ease"
+                style-hover="color:#000"
+                >Instagram</a
+              >
+              <a
+                href="https://www.tiktok.com/@dsgns.delrio"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: #333; transition: color 0.25s ease"
+                style-hover="color:#000"
+                >TikTok</a
+              >
+              <a
+                href="https://www.linkedin.com/in/irene-del-r%C3%ADo-174784340/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: #333; transition: color 0.25s ease"
+                style-hover="color:#000"
+                >Linkedin</a
+              >
+            </nav>
+          </div>
+          <a
+            href="mailto:irenerio2004@gmail.com"
+            style="
+              font-family: &quot;Montserrat&quot;, sans-serif;
+              font-size: max(13px, 1.3vw);
+              letter-spacing: 0.04em;
+              font-weight: 400;
+              color: #111;
+              transition: opacity 0.25s ease;
+            "
+            style-hover="opacity:.55"
+            >IRENERIO2004@GMAIL.COM</a
+          >
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 8px;
+              font-family: &quot;Montserrat&quot;, sans-serif;
+              font-size: max(12px, 0.95vw);
+              letter-spacing: 0.06em;
+              color: #6b6b6b;
+            "
+          >
+            <button
+              type="button"
+              onClick="{{ setEs }}"
+              style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ esColor }}"
+            >
+              ES
+            </button>
+            <span>/</span>
+            <button
+              type="button"
+              onClick="{{ setEn }}"
+              style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ enColor }}"
+            >
+              IN
+            </button>
+          </div>
+        </footer>
       </div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(12px,1.6vw,24px)">
-      <div style="position:relative;width:100%;aspect-ratio:4/5;background:#141414">
-      <video src="videos/tfg-mills-cloudy.mp4" controls="{{ true }}" preload="metadata" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#141414;display:block"></video>
-      </div>
-      <div style="position:relative;width:100%;aspect-ratio:4/5;background:#141414">
-      <image-slot id="tfg-pastis-buenri-foto" shape="rect" fit="cover" src="./images/PASTIS%20Y%20BUENRI.jpg" placeholder="Pastis y Buenri"></image-slot>
-      </div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(12px,1.6vw,24px)">
-      <image-slot id="tfg-post-1" shape="rect" fit="cover" src="./images/PUBLI1.png" style="width:100%;aspect-ratio:4/5;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Post 1" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-post-2" shape="rect" fit="cover" src="./images/PUBLI2.png" style="width:100%;aspect-ratio:4/5;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Post 2" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-post-3" shape="rect" fit="cover" src="./images/PUBLI3.png" style="width:100%;aspect-ratio:4/5;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Post 3" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-post-4" shape="rect" fit="cover" src="./images/PUBLI4.png" style="width:100%;aspect-ratio:4/5;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Post 4" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-post-5" shape="rect" fit="cover" src="./images/PUBLI5.png" style="width:100%;aspect-ratio:4/5;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Post 5" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-post-6" shape="rect" fit="cover" src="./images/PUBLI6.png" style="width:100%;aspect-ratio:4/5;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Post 6" style-hover="transform:scale(1.03)"></image-slot>
-    </div>
-
-    <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">PACKAGING & PAPELERÍA: MENÚS PLASTIFICADOS RESISTENTES PARA ENTORNOS DE FIESTA Y LÍNEA DE ENVASES SOSTENIBLES.</p>
-
-    <div style="position:relative;width:100%;aspect-ratio:16/9;background:#141414">
-      <video src="videos/tfg-packaging.mp4" controls="{{ true }}" preload="metadata" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#141414;display:block"></video>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(12px,1.6vw,24px)">
-      <image-slot id="tfg-menu-1" shape="rect" fit="contain" src="./images/menu3.png" style="width:100%;aspect-ratio:2/3;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Menú 1" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-menu-2" shape="rect" fit="contain" src="./images/menu1.png" style="width:100%;aspect-ratio:2/3;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Menú 2" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-menu-3" shape="rect" fit="contain" src="./images/menu2.png" style="width:100%;aspect-ratio:2/3;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Menú 3" style-hover="transform:scale(1.03)"></image-slot>
-    </div>
-
-    <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2">MERCHANDISING & STAFF: ACREDITACIONES POR JERARQUÍA DE COLOR, PULSERAS DE ACCESO, CAMISETAS BORDADAS, ABANICOS, GORRAS, PEGATINAS ESTILO BOARDING PASS Y UNIFORMES TÉCNICOS PARA EL PERSONAL DEL RECINTO.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(12px,1.6vw,24px)">
-      <image-slot id="tfg-merch-1" shape="rect" fit="cover" src="./images/merch2.png" style="width:100%;aspect-ratio:2/3;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Merchandising 1" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-merch-2" shape="rect" fit="cover" src="./images/merch3.png" style="width:100%;aspect-ratio:2/3;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Merchandising 2" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-merch-3" shape="rect" fit="cover" src="./images/merch4.png" style="width:100%;aspect-ratio:2/3;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Merchandising 3" style-hover="transform:scale(1.03)"></image-slot>
-      <image-slot id="tfg-merch-4" shape="rect" fit="cover" src="./images/mech1.png" style="width:100%;aspect-ratio:2/3;transition:transform .5s cubic-bezier(.22,.61,.36,1)" placeholder="Merchandising 4" style-hover="transform:scale(1.03)"></image-slot>
-    </div>
-
-  </main>
-
-  <footer style="background:#e9e9e9;color:#111;display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2.4vw,32px);padding:clamp(36px,5vw,80px) 3.5vw clamp(28px,3.5vw,56px);font-family:'Gilda Display',serif">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:18px">
-      <div style="display:flex;align-items:center;gap:clamp(4px,.6vw,10px)">
-        <img src="images/logo.webp" alt="DSGNS.DELRIO" style="display:block;height:max(26px,4.8vw);width:auto" />
-        <span style="font-weight:400;letter-spacing:.01em;font-size:max(22px,4vw);line-height:1;color:#111">DSGNS.DELRIO</span>
-      </div>
-      <nav style="display:flex;gap:clamp(18px,3vw,44px);font-family:'Montserrat',sans-serif;font-size:max(12px,.95vw);letter-spacing:.04em;text-transform:none;color:#333">
-        <a href="https://www.instagram.com/dsgns.delrio/" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">Instagram</a>
-        <a href="https://www.tiktok.com/@dsgns.delrio" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">TikTok</a>
-        <a href="https://www.linkedin.com/in/irene-del-r%C3%ADo-174784340/" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">Linkedin</a>
-      </nav>
-    </div>
-    <a href="mailto:irenerio2004@gmail.com" style="font-family:'Montserrat',sans-serif;font-size:max(13px,1.3vw);letter-spacing:.04em;font-weight:400;color:#111;transition:opacity .25s ease" style-hover="opacity:.55">IRENERIO2004@GMAIL.COM</a>
-    <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:max(12px,.95vw);letter-spacing:.06em;color:#6b6b6b">
-      <button type="button" onClick="{{ setEs }}" style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ esColor }}">ES</button>
-      <span>/</span>
-      <button type="button" onClick="{{ setEn }}" style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ enColor }}">IN</button>
-    </div>
-  </footer>
-
-</div>
-
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ES&quot;,&quot;EN&quot;],&quot;default&quot;:&quot;ES&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
-class Component extends DCLogic {
-  state = { lang: this.props.defaultLang === "EN" ? "EN" : "ES" };
-  renderVals() {
-    const en = this.state.lang === "EN";
-    return {
-      navAbout: en ? "ABOUT ME" : "SOBRE MI",
-      navWork: en ? "PROJECTS" : "PROYECTOS",
-      esColor: en ? "#8d8d8d" : "#111",
-      enColor: en ? "#111" : "#8d8d8d",
-      setEs: () => this.setState({ lang: "ES" }),
-      setEn: () => this.setState({ lang: "EN" })
-    };
-  }
-}
-
-</script>
-</body>
+    </x-dc>
+    <script
+      type="text/x-dc"
+      data-dc-script
+      data-props='{"defaultLang":{"editor":"enum","options":["ES","EN"],"default":"ES","tsType":"string"}}'
+    >
+      class Component extends DCLogic {
+        state = { lang: this.props.defaultLang === "EN" ? "EN" : "ES" };
+        renderVals() {
+          const en = this.state.lang === "EN";
+          return {
+            navAbout: en ? "ABOUT ME" : "SOBRE MI",
+            navWork: en ? "PROJECTS" : "PROYECTOS",
+            esColor: en ? "#8d8d8d" : "#111",
+            enColor: en ? "#111" : "#8d8d8d",
+            setEs: () => this.setState({ lang: "ES" }),
+            setEn: () => this.setState({ lang: "EN" })
+          };
+        }
+      }
+    </script>
+  </body>
 </html>

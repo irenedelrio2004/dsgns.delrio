@@ -1,101 +1,418 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Albert+Sans:wght@200;300;400&family=Gilda+Display&display=swap">
-<link rel="stylesheet" href="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/styles.css">
-<script src="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/_ds_bundle.js"></script>
-<script src="./image-slot.js"></script>
-<style>
-  html { background: #000; }
-  body { margin: 0; background: #000; color: #fff; font-family: 'Montserrat', sans-serif; }
-  a { color: #fff; text-decoration: none; }
-  a:hover { color: #bdbdbd; }
-  ::selection { background: #fff; color: #000; }
-</style>
-</helmet>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="images/logo.webp" type="image/webp" />
+    <script src="./support.js"></script>
+  </head>
+  <body>
+    <x-dc>
+      <helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Albert+Sans:wght@200;300;400&family=Gilda+Display&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/styles.css"
+        />
+        <script src="_ds/nocturne-ec3a2124-2df5-42f4-9fc8-09e24e9696db/_ds_bundle.js"></script>
+        <script src="./image-slot.js"></script>
+        <style>
+          html {
+            background: #000;
+          }
+          body {
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: "Montserrat", sans-serif;
+          }
+          a {
+            color: #fff;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #bdbdbd;
+          }
+          ::selection {
+            background: #fff;
+            color: #000;
+          }
+        </style>
+      </helmet>
 
-<div style="background:#000;color:#fff;font-family:'Montserrat',sans-serif;text-transform:uppercase;overflow-x:clip;min-height:100vh;display:flex;flex-direction:column">
+      <div
+        style="
+          background: #000;
+          color: #fff;
+          font-family: &quot;Montserrat&quot;, sans-serif;
+          text-transform: uppercase;
+          overflow-x: clip;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <header
+          style="
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 22px 3.5vw;
+            background: #000;
+          "
+        >
+          <a
+            href="index.html"
+            style="
+              font-size: max(12px, 0.85vw);
+              letter-spacing: 0.14em;
+              font-weight: 400;
+              color: #fff;
+              transition: opacity 0.25s ease;
+            "
+            style-hover="opacity:.55"
+            >DSGNS.DELRIO</a
+          >
+          <nav
+            style="
+              display: flex;
+              align-items: center;
+              gap: clamp(20px, 4vw, 56px);
+              font-size: max(11px, 0.8vw);
+              letter-spacing: 0.14em;
+              color: #b9b9b9;
+            "
+          >
+            <a
+              href="Sobre%20mi.dc.html"
+              style="color: #b9b9b9; transition: color 0.25s ease"
+              style-hover="color:#fff"
+              >{{ navAbout }}</a
+            >
+            <a
+              href="Proyectos.dc.html"
+              style="color: #b9b9b9; transition: color 0.25s ease"
+              style-hover="color:#fff"
+              >{{ navWork }}</a
+            >
+          </nav>
+        </header>
 
-  <header style="position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 3.5vw;background:#000">
-    <a href="Home.dc.html" style="font-size:max(12px,.85vw);letter-spacing:.14em;font-weight:400;color:#fff;transition:opacity .25s ease" style-hover="opacity:.55">DSGNS.DELRIO</a>
-    <nav style="display:flex;align-items:center;gap:clamp(20px,4vw,56px);font-size:max(11px,.8vw);letter-spacing:.14em;color:#b9b9b9">
-      <a href="Sobre%20mi.dc.html" style="color:#b9b9b9;transition:color .25s ease" style-hover="color:#fff">{{ navAbout }}</a>
-      <a href="Proyectos.dc.html" style="color:#b9b9b9;transition:color .25s ease" style-hover="color:#fff">{{ navWork }}</a>
-    </nav>
-  </header>
+        <main
+          style="
+            flex: 1;
+            width: 100%;
+            padding: clamp(40px, 7vw, 110px) 3.5vw clamp(140px, 22vh, 280px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(60px, 10vw, 160px);
+          "
+        >
+          <section>
+            <h2
+              style="
+                margin: 0 0 clamp(20px, 2.6vw, 38px);
+                font-family: &quot;Albert Sans&quot;, sans-serif;
+                font-weight: 300;
+                letter-spacing: 0.04em;
+                font-size: max(17px, 1.8vw);
+              "
+            >
+              CREDITOS SERIE LA CASA DE PAPEL
+            </h2>
+            <div
+              style="
+                position: relative;
+                width: 100%;
+                aspect-ratio: 16/9;
+                background: #141414;
+              "
+            >
+              <video
+                src="videos/av-casadepapel.mp4"
+                controls="{{ true }}"
+                preload="metadata"
+                playsinline="{{ true }}"
+                style="
+                  position: absolute;
+                  inset: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  background: #141414;
+                  display: block;
+                "
+              ></video>
+            </div>
+            <p
+              style="
+                margin: clamp(28px, 4vw, 60px) 0 0;
+                font-weight: 300;
+                font-size: max(11px, 0.9vw);
+                line-height: 1.5;
+                letter-spacing: 0.02em;
+                text-align: justify;
+                color: #e2e2e2;
+                text-wrap: pretty;
+              "
+            >
+              LA IDEA FUE CREAR LOS CREDITOS DE LA SERIE LA CASA DE PAPEL,
+              CARGADA DE TENSIÓN QUE RESUMIERA LA ESTÉTICA DEL ATRACO. SE HA
+              USADO AFTER EFECTS PARA LA CREACIÓN DEL VIDEO COMPLETO, CON
+              CÁMARAS 3D.
+            </p>
+          </section>
 
-  <main style="flex:1;width:100%;padding:clamp(40px,7vw,110px) 3.5vw clamp(140px,22vh,280px);box-sizing:border-box;display:flex;flex-direction:column;gap:clamp(60px,10vw,160px)">
+          <section>
+            <h2
+              style="
+                margin: 0 0 clamp(20px, 2.6vw, 38px);
+                font-family: &quot;Albert Sans&quot;, sans-serif;
+                font-weight: 300;
+                letter-spacing: 0.04em;
+                font-size: max(17px, 1.8vw);
+              "
+            >
+              LYRIC VIDEO: NUEVA SEASON - DELAOSSA
+            </h2>
+            <div
+              style="
+                position: relative;
+                width: 100%;
+                aspect-ratio: 16/9;
+                background: #141414;
+              "
+            >
+              <video
+                src="videos/av-delaossa.mp4"
+                controls="{{ true }}"
+                preload="metadata"
+                playsinline="{{ true }}"
+                style="
+                  position: absolute;
+                  inset: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  background: #141414;
+                  display: block;
+                "
+              ></video>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: clamp(14px, 1.6vw, 22px);
+                margin-top: clamp(28px, 4vw, 60px);
+              "
+            >
+              <p
+                style="
+                  margin: 0;
+                  font-weight: 300;
+                  font-size: max(11px, 0.9vw);
+                  line-height: 1.5;
+                  letter-spacing: 0.02em;
+                  text-align: justify;
+                  color: #e2e2e2;
+                  text-wrap: pretty;
+                "
+              >
+                ES UN LYRIC VIDEO QUE HE HECHO PARA EL TEMA NUEVA SEASON DE
+                DELAOSSA.
+              </p>
+              <p
+                style="
+                  margin: 0;
+                  font-weight: 300;
+                  font-size: max(11px, 0.9vw);
+                  line-height: 1.5;
+                  letter-spacing: 0.02em;
+                  text-align: justify;
+                  color: #e2e2e2;
+                  text-wrap: pretty;
+                "
+              >
+                TODAS LAS ILUSTRACIONES LAS DIBUJÉ E ILUSTRÉ CON UN MISMO
+                ESTILO. A PARTIR DE AHÍ, INTEGRÉ LA LETRA JUGANDO CON LA
+                TIPOGRAFÍA Y EL RITMO, HACIENDO QUE EL TEXTO NO SOLO SE LEA,
+                SINO QUE FLUYA, GOLPEE Y TENGA LA MISMA ACTITUD QUE LAS BARRAS
+                DE DELAOSSA.
+              </p>
+              <p
+                style="
+                  margin: 0;
+                  font-weight: 300;
+                  font-size: max(11px, 0.9vw);
+                  line-height: 1.5;
+                  letter-spacing: 0.02em;
+                  text-align: justify;
+                  color: #e2e2e2;
+                  text-wrap: pretty;
+                "
+              >
+                LA IDEA ERA UNIR ILUSTRACIÓN PROPIA Y DISEÑO TIPOGRÁFICO PARA
+                CREAR UNA ESTÉTICA VISUAL QUE ACOMPAÑE LA MÚSICA SIN PERDER
+                ENERGÍA EN NINGÚN MOMENTO.
+              </p>
+            </div>
+          </section>
+        </main>
 
-    <section>
-      <h2 style="margin:0 0 clamp(20px,2.6vw,38px);font-family:'Albert Sans',sans-serif;font-weight:300;letter-spacing:.04em;font-size:max(17px,1.8vw)">CREDITOS SERIE LA CASA DE PAPEL</h2>
-      <div style="position:relative;width:100%;aspect-ratio:16/9;background:#141414">
-      <video src="videos/av-casadepapel.mp4" controls="{{ true }}" preload="metadata" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#141414;display:block"></video>
+        <footer
+          style="
+            background: #e9e9e9;
+            color: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(16px, 2.4vw, 32px);
+            padding: clamp(36px, 5vw, 80px) 3.5vw clamp(28px, 3.5vw, 56px);
+            font-family: &quot;Gilda Display&quot;, serif;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 18px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: clamp(4px, 0.6vw, 10px);
+              "
+            >
+              <img
+                src="images/logo.webp"
+                alt="DSGNS.DELRIO"
+                style="display: block; height: max(26px, 4.8vw); width: auto"
+              />
+              <span
+                style="
+                  font-weight: 400;
+                  letter-spacing: 0.01em;
+                  font-size: max(22px, 4vw);
+                  line-height: 1;
+                  color: #111;
+                "
+                >DSGNS.DELRIO</span
+              >
+            </div>
+            <nav
+              style="
+                display: flex;
+                gap: clamp(18px, 3vw, 44px);
+                font-family: &quot;Montserrat&quot;, sans-serif;
+                font-size: max(12px, 0.95vw);
+                letter-spacing: 0.04em;
+                text-transform: none;
+                color: #333;
+              "
+            >
+              <a
+                href="https://www.instagram.com/dsgns.delrio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: #333; transition: color 0.25s ease"
+                style-hover="color:#000"
+                >Instagram</a
+              >
+              <a
+                href="https://www.tiktok.com/@dsgns.delrio"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: #333; transition: color 0.25s ease"
+                style-hover="color:#000"
+                >TikTok</a
+              >
+              <a
+                href="https://www.linkedin.com/in/irene-del-r%C3%ADo-174784340/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: #333; transition: color 0.25s ease"
+                style-hover="color:#000"
+                >Linkedin</a
+              >
+            </nav>
+          </div>
+          <a
+            href="mailto:irenerio2004@gmail.com"
+            style="
+              font-family: &quot;Montserrat&quot;, sans-serif;
+              font-size: max(13px, 1.3vw);
+              letter-spacing: 0.04em;
+              font-weight: 400;
+              color: #111;
+              transition: opacity 0.25s ease;
+            "
+            style-hover="opacity:.55"
+            >IRENERIO2004@GMAIL.COM</a
+          >
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 8px;
+              font-family: &quot;Montserrat&quot;, sans-serif;
+              font-size: max(12px, 0.95vw);
+              letter-spacing: 0.06em;
+              color: #6b6b6b;
+            "
+          >
+            <button
+              type="button"
+              onClick="{{ setEs }}"
+              style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ esColor }}"
+            >
+              ES
+            </button>
+            <span>/</span>
+            <button
+              type="button"
+              onClick="{{ setEn }}"
+              style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ enColor }}"
+            >
+              IN
+            </button>
+          </div>
+        </footer>
       </div>
-      <p style="margin:clamp(28px,4vw,60px) 0 0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2;text-wrap:pretty">LA IDEA FUE CREAR LOS CREDITOS DE LA SERIE LA CASA DE PAPEL,  CARGADA DE TENSIÓN QUE RESUMIERA LA ESTÉTICA DEL ATRACO. SE HA USADO AFTER EFECTS PARA LA CREACIÓN DEL VIDEO COMPLETO, CON CÁMARAS 3D.</p>
-    </section>
-
-    <section>
-      <h2 style="margin:0 0 clamp(20px,2.6vw,38px);font-family:'Albert Sans',sans-serif;font-weight:300;letter-spacing:.04em;font-size:max(17px,1.8vw)">LYRIC VIDEO: NUEVA SEASON - DELAOSSA</h2>
-      <div style="position:relative;width:100%;aspect-ratio:16/9;background:#141414">
-      <video src="videos/av-delaossa.mp4" controls="{{ true }}" preload="metadata" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#141414;display:block"></video>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,22px);margin-top:clamp(28px,4vw,60px)">
-        <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2;text-wrap:pretty">ES UN LYRIC VIDEO QUE HE HECHO PARA EL TEMA NUEVA SEASON DE DELAOSSA.</p>
-        <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2;text-wrap:pretty">TODAS LAS ILUSTRACIONES LAS DIBUJÉ E ILUSTRÉ CON UN MISMO ESTILO. A PARTIR DE AHÍ, INTEGRÉ LA LETRA JUGANDO CON LA TIPOGRAFÍA Y EL RITMO, HACIENDO QUE EL TEXTO NO SOLO SE LEA, SINO QUE FLUYA, GOLPEE Y TENGA LA MISMA ACTITUD QUE LAS BARRAS DE DELAOSSA.</p>
-        <p style="margin:0;font-weight:300;font-size:max(11px,.9vw);line-height:1.5;letter-spacing:.02em;text-align:justify;color:#e2e2e2;text-wrap:pretty">LA IDEA ERA UNIR ILUSTRACIÓN PROPIA Y DISEÑO TIPOGRÁFICO PARA CREAR UNA ESTÉTICA VISUAL QUE ACOMPAÑE LA MÚSICA SIN PERDER ENERGÍA EN NINGÚN MOMENTO.</p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer style="background:#e9e9e9;color:#111;display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2.4vw,32px);padding:clamp(36px,5vw,80px) 3.5vw clamp(28px,3.5vw,56px);font-family:'Gilda Display',serif">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:18px">
-      <div style="display:flex;align-items:center;gap:clamp(4px,.6vw,10px)">
-        <img src="images/logo.webp" alt="DSGNS.DELRIO" style="display:block;height:max(26px,4.8vw);width:auto" />
-        <span style="font-weight:400;letter-spacing:.01em;font-size:max(22px,4vw);line-height:1;color:#111">DSGNS.DELRIO</span>
-      </div>
-      <nav style="display:flex;gap:clamp(18px,3vw,44px);font-family:'Montserrat',sans-serif;font-size:max(12px,.95vw);letter-spacing:.04em;text-transform:none;color:#333">
-        <a href="https://www.instagram.com/dsgns.delrio/" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">Instagram</a>
-        <a href="https://www.tiktok.com/@dsgns.delrio" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">TikTok</a>
-        <a href="https://www.linkedin.com/in/irene-del-r%C3%ADo-174784340/" target="_blank" rel="noopener noreferrer" style="color:#333;transition:color .25s ease" style-hover="color:#000">Linkedin</a>
-      </nav>
-    </div>
-    <a href="mailto:irenerio2004@gmail.com" style="font-family:'Montserrat',sans-serif;font-size:max(13px,1.3vw);letter-spacing:.04em;font-weight:400;color:#111;transition:opacity .25s ease" style-hover="opacity:.55">IRENERIO2004@GMAIL.COM</a>
-    <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:max(12px,.95vw);letter-spacing:.06em;color:#6b6b6b">
-      <button type="button" onClick="{{ setEs }}" style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ esColor }}">ES</button>
-      <span>/</span>
-      <button type="button" onClick="{{ setEn }}" style="border:0;background:none;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:uppercase;color:{{ enColor }}">IN</button>
-    </div>
-  </footer>
-
-</div>
-
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ES&quot;,&quot;EN&quot;],&quot;default&quot;:&quot;ES&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
-class Component extends DCLogic {
-  state = { lang: this.props.defaultLang === "EN" ? "EN" : "ES" };
-  renderVals() {
-    const en = this.state.lang === "EN";
-    return {
-      navAbout: en ? "ABOUT ME" : "SOBRE MI",
-      navWork: en ? "PROJECTS" : "PROYECTOS",
-      esColor: en ? "#8d8d8d" : "#111",
-      enColor: en ? "#111" : "#8d8d8d",
-      setEs: () => this.setState({ lang: "ES" }),
-      setEn: () => this.setState({ lang: "EN" })
-    };
-  }
-}
-
-</script>
-</body>
+    </x-dc>
+    <script
+      type="text/x-dc"
+      data-dc-script
+      data-props='{"defaultLang":{"editor":"enum","options":["ES","EN"],"default":"ES","tsType":"string"}}'
+    >
+      class Component extends DCLogic {
+        state = { lang: this.props.defaultLang === "EN" ? "EN" : "ES" };
+        renderVals() {
+          const en = this.state.lang === "EN";
+          return {
+            navAbout: en ? "ABOUT ME" : "SOBRE MI",
+            navWork: en ? "PROJECTS" : "PROYECTOS",
+            esColor: en ? "#8d8d8d" : "#111",
+            enColor: en ? "#111" : "#8d8d8d",
+            setEs: () => this.setState({ lang: "ES" }),
+            setEn: () => this.setState({ lang: "EN" })
+          };
+        }
+      }
+    </script>
+  </body>
 </html>
