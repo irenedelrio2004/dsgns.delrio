@@ -247,7 +247,7 @@
             style="
               display: flex;
               flex-wrap: wrap;
-              gap: clamp(24px, 4vw, 64px);
+              gap: clamp(12px, 2vw, 28px);
               align-items: stretch;
             "
           >
@@ -255,9 +255,12 @@
               id="about-portrait"
               shape="rect"
               fit="cover"
-              src="./images/irene%20selfie.jpeg"
+              pan-y="20"
+              src="./images/yo.jpeg"
               style="
-                flex: 1 1 320px;
+                --slot-bg: #000;
+                flex: 1 1 560px;
+                min-height: 520px;
                 align-self: stretch;
                 height: auto;
                 transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
